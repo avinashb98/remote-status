@@ -7,6 +7,9 @@ const logger = require('morgan')
 require('./config/db')
 const passport = require('./config/passport')
 
+const userRouter = require('./src/routes/user')
+const dashboardRouter = require('./src/routes/dashboard')
+
 const app = express()
 
 // view engine setup
@@ -37,6 +40,19 @@ app.get('/redirect',
   function (req, res) {
     res.redirect('/health')
   })
+
+// app.get('/test-login',
+//   passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'], failureRedirect: '/health' }),
+//   (req, res) => {
+//     console.log(req.user)
+//     req.status(200).json({
+//       message: 'Login in test successful'
+//     })
+//   }
+// )
+
+app.use('/user', userRouter)
+app.use('/dashboard', dashboardRouter)
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
