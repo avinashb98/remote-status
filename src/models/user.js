@@ -4,7 +4,7 @@ const { Schema } = mongoose
 const TeamSchema = new Schema({
   teamName: {
     type: String,
-    enum: ['Tech', 'Product', 'Language', 'Finance', 'Law', 'Admin', 'Design', 'Business and Marketing']
+    enum: ['Tech', 'Product', 'Language', 'Finance', 'Law', 'Admin', 'Design', 'Business and Marketing', 'Other']
   }
 })
 
@@ -14,6 +14,10 @@ const UserSchema = new Schema({
     required: true
   },
   name: {
+    type: String,
+    required: true
+  },
+  organisation: {
     type: String,
     required: true
   },
