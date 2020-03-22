@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
 require('./config/db')
+const passport = require('./config/passport')
 
 const app = express()
 
@@ -24,6 +25,15 @@ app.get('/health', (req, res) => {
     messsge: 'Remote Status is running healthy!'
   })
 })
+
+app.get('/auth/google',
+  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }))
+
+app.get('/redirect',
+  passport.authenticate('google', { failureRedirect: '/login' }),
+  function (req, res) {
+    res.redirect('/health')
+  })
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
