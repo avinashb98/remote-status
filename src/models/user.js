@@ -9,17 +9,19 @@ const TeamSchema = new Schema({
 })
 
 const UserSchema = new Schema({
-  userId: {
+  googleId: {
     type: String,
     required: true
+  },
+  photo: {
+    type: String
   },
   name: {
     type: String,
     required: true
   },
   organisation: {
-    type: String,
-    required: true
+    type: String
   },
   teams: {
     type: [TeamSchema]
