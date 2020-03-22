@@ -1,15 +1,9 @@
 const mongoose = require('mongoose')
 
 const { Schema } = mongoose
-const TeamSchema = new Schema({
-  teamName: {
-    type: String,
-    enum: ['Tech', 'Product', 'Language', 'Finance', 'Law', 'Admin', 'Design', 'Business and Marketing', 'Other']
-  }
-})
 
 const UserSchema = new Schema({
-  googleId: {
+  userId: {
     type: String,
     required: true
   },
@@ -23,8 +17,8 @@ const UserSchema = new Schema({
   organisation: {
     type: String
   },
-  teams: {
-    type: [TeamSchema]
+  team: {
+    type: String
   },
   status: {
     type: String,
