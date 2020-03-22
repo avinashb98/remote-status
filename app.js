@@ -4,7 +4,6 @@ const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
-// Connect to db
 require('./config/db')
 
 const app = express()
