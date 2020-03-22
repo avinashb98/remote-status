@@ -18,7 +18,6 @@ function updateStatus(userId, status) {
         return response.json();
     })
     .then((data) => {
-        console.log(data);
         reflectStatus(userId, status);
     });
 }
