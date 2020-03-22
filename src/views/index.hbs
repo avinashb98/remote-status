@@ -1,0 +1,23 @@
+<div class="container">
+  {{#each dashboard.teams}}
+    <h3 class="team-name">{{team}}</h3>
+    <div class="team-container row">
+      {{#each users}}
+        <div class="col-sm-12 col-md-6 col-lg-3 user-card">
+          {{#if isOnline}}
+            <div class="status online">
+            </div>
+          {{/if}}
+          {{#if isAway}}
+            <div class="status away"></div>
+          {{/if}}
+          {{#if isOffline}}
+            <div class="status offline"></div>
+          {{/if}}
+          <h5 class="name">{{name}}</h5>
+          <button class="btn btn-primary edit" onclick="updateStatus('{{userId}}')">Edit</button>
+        </div>
+      {{/each}}
+    </div>
+  {{/each}}
+</div>

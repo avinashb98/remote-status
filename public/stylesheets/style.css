@@ -1,0 +1,56 @@
+body {
+  color: #444;
+  background-color: #F9FAFB;
+}
+
+.team-container {
+  width: 100%;
+  padding: 20px;
+}
+
+.team-name {
+  display: block;
+  margin-top: 50px;
+}
+
+.user-card {
+  box-shadow: 0 0 14px 0 rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  margin-left: 20px;
+  margin-bottom: 20px;
+  position: relative;
+  padding-left: 40px;
+  height: 80px;
+}
+.user-card .name {
+  color: #555;
+  padding-top: 5%;
+}
+
+.user-card .status {
+  height: 100%;
+  width: 5%;
+  position: absolute;
+  left: 0;
+  top: 0;
+  /* margin-right: 10px; */
+  border-top-left-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+  .edit {
+    position: absolute;
+    top: 0;
+    right: 0;
+  }
+  .online {
+    background-color: #42df96;
+  }
+  .online:hover {
+    background-color: #42df96;
+  }
+  .away {
+    background-color: #ffd740;
+  }
+  .offline {
+    background-color: #ef5350;
+  }
