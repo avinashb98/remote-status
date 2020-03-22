@@ -5,17 +5,25 @@
       {{#each users}}
         <div class="col-sm-12 col-md-6 col-lg-3 user-card">
           {{#if isOnline}}
-            <div class="status online">
-            </div>
+            <div id="{{userId}}" class="status online"></div>
           {{/if}}
           {{#if isAway}}
-            <div class="status away"></div>
+            <div id="{{userId}}" class="status away"></div>
           {{/if}}
           {{#if isOffline}}
-            <div class="status offline"></div>
+            <div id="{{userId}}" class="status offline"></div>
           {{/if}}
           <h5 class="name">{{name}}</h5>
-          <button class="btn btn-primary edit" onclick="updateStatus('{{userId}}')">Edit</button>
+          <div class="dropdown">
+            <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+              <img src="/remote-status/static/images/edit.png" alt="" srcset="">
+            </button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+              <a class="dropdown-item" href="#" onclick="updateStatus('{{userId}}', 'Online')">Online</a>
+              <a class="dropdown-item" href="#" onclick="updateStatus('{{userId}}', 'Offline')">Offline</a>
+              <a class="dropdown-item" href="#" onclick="updateStatus('{{userId}}', 'Away')">Away</a>
+            </div>
+          </div>
         </div>
       {{/each}}
     </div>
