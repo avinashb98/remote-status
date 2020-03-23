@@ -3,6 +3,20 @@ const createError = require('http-errors')
 const User = require('../models/user')
 
 const arrangeUsersByTeam = (users) => {
+  function compare (a, b) {
+    // Use toUpperCase() to ignore character casing
+    const userA = a.name.toUpperCase()
+    const userB = b.name.toUpperCase()
+
+    let comparison = 0
+    if (userA > userB) {
+      comparison = 1
+    } else if (userA < userB) {
+      comparison = -1
+    }
+    return comparison
+  }
+
   users = users.map(u => (
     {
       ...u._doc,
@@ -11,7 +25,8 @@ const arrangeUsersByTeam = (users) => {
       isOffline: u.status === 'Offline',
       test: 'agfghhjksdkhfhasdhjk'
     }
-  ))
+  )).sort(compare)
+
   const dashboard = []
   const teams = {}
   for (const user of users) {
