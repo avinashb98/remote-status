@@ -8,6 +8,15 @@ h5 {
   margin-top: 15px;
 }
 
+h2 {
+  color: #555;
+  margin-bottom: 30px;
+}
+.add-user {
+  margin-left: 25px;
+  margin-bottom: 50px;
+}
+
 .team-container {
   padding: 20px;
 }
@@ -30,7 +39,7 @@ h5 {
 }
 .user-card .name {
   color: #555;
-  /* padding-top: 5%; */
+  padding-left: 5%;
 }
 
 .user-card .status {

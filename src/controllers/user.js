@@ -20,9 +20,11 @@ class UserController {
       next(createError(500))
       return
     }
-    res.status(201).json({
-      message: 'User successfully created'
-    })
+    res.redirect(`/dashboard/${organisation}`)
+  }
+
+  static async renderAddUser (req, res, next) {
+    res.render('addUser')
   }
 
   static async updateUser (req, res, next) {

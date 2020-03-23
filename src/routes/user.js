@@ -8,6 +8,11 @@ router.post(
   controller.addUser
 )
 
+router.get(
+  '/',
+  controller.renderAddUser
+)
+
 router.patch(
   '/',
   controller.updateUser
