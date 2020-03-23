@@ -3,12 +3,16 @@ body {
   background-color: #F9FAFB;
 }
 
+h5 {
+  margin-top: 15px;
+}
+
 .team-container {
-  width: 100%;
   padding: 20px;
 }
 
 .team-name {
+  color: #555;
   display: block;
   margin-top: 50px;
   margin-left: 25px;
@@ -30,7 +34,7 @@ body {
 
 .user-card .status {
   height: 100%;
-  width: 5%;
+  width: 10%;
   position: absolute;
   left: 0;
   top: 0;
