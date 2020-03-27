@@ -3,6 +3,7 @@ const express = require('express')
 const path = require('path')
 const cookieParser = require('cookie-parser')
 const logger = require('morgan')
+const compression = require('compression')
 
 require('./config/db')
 
@@ -10,7 +11,7 @@ const userRouter = require('./src/routes/user')
 const dashboardRouter = require('./src/routes/dashboard')
 
 const app = express()
-
+app.use(compression())
 // view engine setup
 app.set('views', path.join(__dirname, 'src/views'))
 app.set('view engine', 'hbs')
