@@ -5,7 +5,6 @@ const cookieParser = require('cookie-parser')
 const logger = require('morgan')
 
 require('./config/db')
-const passport = require('./config/passport')
 
 const userRouter = require('./src/routes/user')
 const dashboardRouter = require('./src/routes/dashboard')
@@ -22,34 +21,12 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use('/remote-status/static', express.static(path.join(__dirname, 'public')))
 
-app.use(passport.initialize())
-app.use(passport.session())
-
 // Router Initialization
 app.get('/health', (req, res) => {
   res.status(200).json({
     messsge: 'Remote Status is running healthy!'
   })
 })
-
-app.get('/auth/google',
-  passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'] }))
-
-app.get('/redirect',
-  passport.authenticate('google', { failureRedirect: '/health' }),
-  function (req, res) {
-    res.redirect('/health')
-  })
-
-// app.get('/test-login',
-//   passport.authenticate('google', { scope: ['https://www.googleapis.com/auth/plus.login'], failureRedirect: '/health' }),
-//   (req, res) => {
-//     console.log(req.user)
-//     req.status(200).json({
-//       message: 'Login in test successful'
-//     })
-//   }
-// )
 
 app.use('/user', userRouter)
 app.use('/dashboard', dashboardRouter)
