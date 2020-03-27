@@ -5,7 +5,7 @@ $(document).ready(function(){
 });
 
 function reflectStatus(userId, status, message) {
-    const statusBar = document.getElementById(userId);
+    const statusBar = document.getElementById(`${userId}-status`);
     statusBar.className = `status ${status.toLowerCase()}`;
     $(`#${userId}-card`).tooltip('hide')
       .attr('data-original-title', message)
