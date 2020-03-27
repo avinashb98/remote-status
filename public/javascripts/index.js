@@ -13,7 +13,6 @@ function reflectStatus(userId, status, message) {
     statusBar.className = `status ${status.toLowerCase()}`;
     $(`#${userId}-card`).tooltip('hide')
       .attr('data-original-title', message)
-      .tooltip('show');
 }
 
 function updateStatus(userId, status) {
