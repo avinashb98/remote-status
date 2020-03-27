@@ -25,8 +25,9 @@ const UserSchema = new Schema({
     enum: ['Online', 'Away', 'Offline'],
     default: 'Online'
   },
-  backBy: {
-    type: Date
+  message: {
+    type: String,
+    default: 'Online'
   }
 },
 {

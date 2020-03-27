@@ -4,7 +4,7 @@
     <h3 class="team-name">{{team}}</h3>
     <div class="team-container row">
       {{#each users}}
-        <div class="col-sm-12 col-md-3 col-lg-2 user-card">
+        <div class="col-sm-12 col-md-3 col-lg-2 user-card" title="{{message}}" data-toggle="tooltip" id="{{userId}}-card">
           {{#if isOnline}}
             <div id="{{userId}}" class="status online"></div>
           {{/if}}
@@ -15,14 +15,21 @@
             <div id="{{userId}}" class="status offline"></div>
           {{/if}}
           <h5 class="name">{{name}}</h5>
-          <div class="dropdown">
+          <div class="dropleft">
             <button class="btn btn-sm" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
               <img src="/remote-status/static/images/edit.png" alt="" srcset="">
             </button>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
               <a class="dropdown-item" href="#" onclick="updateStatus('{{userId}}', 'Online')">Online</a>
               <a class="dropdown-item" href="#" onclick="updateStatus('{{userId}}', 'Offline')">Offline</a>
-              <a class="dropdown-item" href="#" onclick="updateStatus('{{userId}}', 'Away')">Away</a>
+              <div class="dropdown-divider"></div>
+              <form class="px-4 py-3">
+                <div class="form-group">
+                  <label for="{{userId}}-away-input">Next Available at...</label>
+                  <input type="text" class="form-control" id="{{userId}}-away-input" placeholder="e.g. 3PM">
+                </div>
+                <button type="submit" onclick="updateStatus('{{userId}}', 'Away')" class="btn btn-light btn-sm">Update</button>
+              </form>
             </div>
           </div>
         </div>

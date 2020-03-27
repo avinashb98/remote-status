@@ -53,7 +53,7 @@ class DashboardController {
     try {
       users = await User.find(
         { organisation },
-        { status: 1, userId: 1, name: 1, team: 1, organisation: 1, _id: 0 }
+        { status: 1, userId: 1, name: 1, team: 1, organisation: 1, message: 1, _id: 0 }
       )
     } catch (error) {
       console.log(error)

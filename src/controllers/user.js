@@ -28,7 +28,7 @@ class UserController {
   }
 
   static async updateUser (req, res, next) {
-    const { userId, name, team, organisation, status } = req.body
+    const { userId, name, team, organisation, status, message } = req.body
 
     const updateFields = {}
     if (name) {
@@ -43,6 +43,10 @@ class UserController {
     if (status) {
       updateFields.status = status
     }
+    if (message) {
+      updateFields.message = message
+    }
+
     try {
       const user = await User.findOne({ userId })
       if (!user) {

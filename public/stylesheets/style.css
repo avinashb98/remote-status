@@ -44,7 +44,7 @@ h2 {
 
 .user-card .status {
   height: 100%;
-  width: 10%;
+  width: 30px;
   position: absolute;
   left: 0;
   top: 0;
@@ -66,8 +66,12 @@ h2 {
   .offline {
     background-color: #ef5350;
   }
-  .dropdown {
+  .dropleft {
     position: absolute;
     top: 17%;
     right: 0;
   }
+
+.dropdown-menu {
+  width: 200px !important;
+}
