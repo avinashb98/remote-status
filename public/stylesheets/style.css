@@ -12,8 +12,14 @@ h2 {
   color: #555;
   margin-bottom: 30px;
 }
+
+.logo {
+  width: 100px;
+  transform: translate(15px, -23px);
+}
+
 .add-user {
-  margin-left: 25px;
+  margin-left: 15px;
   margin-bottom: 50px;
 }
 
