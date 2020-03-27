@@ -42,6 +42,10 @@ h2 {
   padding-left: 5%;
 }
 
+.loading {
+  width: 25px;
+}
+
 .user-card .status {
   height: 100%;
   width: 30px;

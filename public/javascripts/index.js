@@ -25,6 +25,9 @@ function updateStatus(userId, status) {
     } else {
         data.message = status
     }
+    let editIcon = document.getElementById(`${userId}-edit-button`);
+    editIcon.src = '/remote-status/static/images/loading.gif'
+    editIcon.className = "loading"
     fetch('/user', {
         method: 'PATCH',
         headers: {
@@ -37,5 +40,9 @@ function updateStatus(userId, status) {
     })
     .then((result) => {
         reflectStatus(userId, status, data.message);
+        setTimeout(() => {
+            editIcon.src = '/remote-status/static/images/edit.png'
+            editIcon.className = ""
+        }, 5000)
     });
 }
