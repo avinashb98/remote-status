@@ -40,9 +40,7 @@ function updateStatus(userId, status) {
     })
     .then((result) => {
         reflectStatus(userId, status, data.message);
-        setTimeout(() => {
-            editIcon.src = '/remote-status/static/images/edit.png'
-            editIcon.className = ""
-        }, 5000)
+        editIcon.className = ""
+        editIcon.src = '/remote-status/static/images/edit.png'
     });
 }
