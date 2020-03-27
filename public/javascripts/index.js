@@ -1,5 +1,9 @@
 /* eslint-disable */
 
+// Prefetch loader gif
+const loader = new Image();
+loader.src = '/remote-status/static/images/loading.gif'
+
 $(document).ready(function(){
     $('[data-toggle="tooltip"]').tooltip();   
 });
