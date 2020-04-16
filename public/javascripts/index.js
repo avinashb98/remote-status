@@ -5,7 +5,10 @@ const loader = new Image();
 loader.src = '/remote-status/static/images/loading.gif'
 
 $(document).ready(function(){
-    $('[data-toggle="tooltip"]').tooltip();   
+    $('[data-toggle="tooltip"]').tooltip();
+    $('form').submit(function (evt) {
+        evt.preventDefault(); //prevents the default action
+     });
 });
 
 function reflectStatus(userId, status, message) {
@@ -45,5 +48,6 @@ function updateStatus(userId, status) {
         reflectStatus(userId, status, data.message);
         editIcon.className = ""
         editIcon.src = '/remote-status/static/images/edit.png'
-    });
+    })
+    .catch(console.log)
 }
